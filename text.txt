@@ -1,0 +1,7 @@
+variables
+data types
+loops
+functions 
+basic OOP  1-2 Weeks
+
+Variables = string integer float boolean
