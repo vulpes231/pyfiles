@@ -26,7 +26,7 @@ elif symbol == "*":
     result = first_number * second_number
     print(f"result {first_number} {symbol} {second_number} = {round(result)}")
 else:
-    print("Unsupported operation")
+    print("Unsupported Operation!")
 
 
 
