@@ -5,3 +5,25 @@ functions
 basic OOP  1-2 Weeks
 
 Variables = string integer float boolean
+
+/atm algorithm
+
+- welcome message
+- enter pin
+- dislay options (transfer, withdraw, check balance, quit)
+
+
+withdraw
+- enter amount
+- enter pin
+- if balance > amount wihtdraw
+
+transfer
+- to account
+- amount
+- pin
+- if balance > amount wihtdraw
+
+check balance
+- pin
+- display balance
