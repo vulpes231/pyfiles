@@ -1,15 +1,6 @@
-def create_table(num):
-    for x in range(1, 13):
-        result = num * x
-        print(f"{num} x {x} = {result}")
+numpad = ((1, 2, 3), (4, 5, 6), (7, 8, 9), ("*", 0, "#"))
 
-
-create_table(1)
-print()
-create_table(2)
-print()
-create_table(3)
-print()
-create_table(4)
-print()
-create_table(5)
+for row in numpad:
+    for column in row:
+        print(column, end=" ")
+    print()
