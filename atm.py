@@ -1,13 +1,19 @@
 import time
 
+user = {
+    "username": "vulpes26",
+    "password": "12345",
+    "user_pin": 1234,
+    "account_balance": 4000
+}
+
 print("Welcome to Vulpes ATM Banking.")
-user_pin = 1234
 amount = 0
-account_balance = 50000
+# user_bal =  user.get("account_balance") 
 
 while True:
     pin = int(input("Enter pin to proceed: "))
-    if not user_pin == pin:
+    if not user.get("user_pin") == pin:
         print("Invalid pin!")
     else:
         print("Select Action.")
@@ -22,12 +28,15 @@ while True:
             if choice == 1:
                 amount = int(input("Enter amount: $"))
                 withdraw_pin = int(input("Enter withdrawal pin: "))
-                if not withdraw_pin == pin:
+                if not withdraw_pin == user.get("user_pin"):
                     print("Invalid withdrawal pin!")
                 else:
                     print("Withdrawing")
                     time.sleep(3)
                     print(f"${amount:.2f} withdrawn successfully.")
+                    new_bal = user.get("account_balance") - amount
+                    user.update({"account_balance": new_bal})
+                    print(f"New balance ${user.get('account_balance'):.2f}")
                     prompt = input("Do you want to perform another transaction? Y/N: ")
                     if prompt.lower() == "y":
                         continue
@@ -40,8 +49,9 @@ while True:
                 print("Sending money...")
                 time.sleep(3)
                 print(f"${amount:.2f} sent to {to_account}")
-                new_bal = account_balance - amount
-                print(f"New balance ${new_bal:.2f}")
+                new_bal = user.get("account_balance") - amount
+                user.update({"account_balance": new_bal})
+                print(f"New balance ${user.get('account_balance'):.2f}")
                 prompt = input("Do you want to perform another transaction? Y/N: ")
                 if prompt.lower() == "y":
                     continue
@@ -50,11 +60,12 @@ while True:
                     break
             elif choice == 3:
                 check_pin = int(input("Enter pin: "))
-                if not check_pin == pin:
+                if not check_pin == user.get("user_pin"):
                     print("Invalid pin!")
                 else:
                     print("Loading balance...")
                     time.sleep(3)
-                    print(f"Your account balance is ${account_balance:.2f}")
+                    bal = user.get('account_balance')
+                    print(f"Your account balance is ${bal:.2f}")
             else:
                 print("Invalid action") 
